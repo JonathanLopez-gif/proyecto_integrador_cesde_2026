@@ -24,7 +24,7 @@ public class Person {
         this.status = status;
     }
 
-    // Métodos de acceso getters y setters
+    // Métodos de acceso
     public Long getUserId() {
         return userId;
     }
