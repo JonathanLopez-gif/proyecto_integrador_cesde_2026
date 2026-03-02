@@ -1,6 +1,7 @@
 package co.edu.cesde.ga.app;
 
 import co.edu.cesde.ga.model.Person;
+import co.edu.cesde.ga.model.Program;
 import co.edu.cesde.ga.model.Student;
 import co.edu.cesde.ga.model.Teacher;
 
@@ -104,6 +105,28 @@ public class Main {
         System.out.println("Last Name: " + student2.getLastName());
         System.out.println("Status: " + student2.getStatus());
         System.out.println("Birth Date: " + student2.getBirthDate());
+        System.out.println("------------------------- ");
+
+        // Instanciación de program1 con constructor vacío
+        Program program1 = new Program();
+
+        program1.setProgramId(5432L);
+        program1.setCode("LI4478");
+        program1.setName("Calculation");
+
+        System.out.println("PROGRAM 1");
+        System.out.println("Program ID: " + program1.getProgramId());
+        System.out.println("Code: " + program1.getCode());
+        System.out.println("Name: " + program1.getName());
+        System.out.println("------------------------- ");
+
+        // Instanciación de program2 con constructor lleno
+        Program program2 = new Program(8901L, "CR5500", "English");
+
+        System.out.println("PROGRAM 2");
+        System.out.println("Program ID: " + program2.getProgramId());
+        System.out.println("Code: " + program2.getCode());
+        System.out.println("Name: " + program2.getName());
         System.out.println("------------------------- ");
 
     }
