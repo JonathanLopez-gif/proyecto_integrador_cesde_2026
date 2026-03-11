@@ -144,8 +144,13 @@ public class Main {
         System.out.println("shift Id: " + group1.getShift());
         System.out.println("------------------------- ");
 
-        // Instancia de Group usando el constructor lleno
-        Group group2 = new Group();
+        // Instancia de group2 usando el constructor lleno
+        Group group2 = new Group(346L, "G7H8I", "543L", "105690", "mañana");
+        group1.setGroupId(346L);
+        group1.setCode("G7H8I");
+        group1.setProgramId("543L");
+        group1.setPeriodId("105690");
+        group1.setShift("mañana");
 
         System.out.println("GROUP 2");
         System.out.println("group ID: " + group2.getGroupId());
