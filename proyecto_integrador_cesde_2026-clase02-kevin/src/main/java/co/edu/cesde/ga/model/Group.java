@@ -1,6 +1,6 @@
 package co.edu.cesde.ga.model;
 
-public class group {
+public class Group {
 
     // Atributos
     private Long groupId;
@@ -10,11 +10,11 @@ public class group {
     private String shift;
 
     // Constructor vacío
-    public group() {
+    public Group() {
     }
 
     // Constructor lleno
-    public  group(Long groupId, String code, String programId, String periodId, String shift) {
+    public Group(Long groupId, String code, String programId, String periodId, String shift) {
         this.groupId = groupId;
         this.code = code;
         this.programId = programId;
@@ -40,23 +40,23 @@ public class group {
         this.code = code;
     }
 
-    public String getprogramId() {return programId;}
+    public String getProgramId() {return programId;}
 
-    public void setprogramId(String programaId) {this.programId =  programaId;}
+    public void setProgramId(String programaId) {this.programId =  programaId;}
 
-    public String getperiodId() {
+    public String getPeriodId() {
         return periodId;
     }
 
-    public void setperiodId(String periodId) {
+    public void setPeriodId(String periodId) {
         this.periodId = periodId;
     }
 
-    public String getshift() {
+    public String getShift() {
         return shift;
     }
 
-    public void setshift(String shift) {
+    public void setShift(String shift) {
         this.shift = shift;
     }
 }

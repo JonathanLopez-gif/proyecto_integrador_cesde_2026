@@ -128,41 +128,32 @@ public class Main {
         System.out.println("------------------------- ");
 
         //Instancia de group con constructor vacio
-        group group1 = new group();
+        Group group1 = new Group();
 
         group1.setGroupId(3467L);
         group1.setCode("G7H8I9");
-        group1.setprogramId("5432L");
-        group1.setperiodId("105690");
-        group1.setshift("mañana");
+        group1.setProgramId("5432L");
+        group1.setPeriodId("105690");
+        group1.setShift("mañana");
 
         System.out.println("GROUP 1");
         System.out.println("Group ID: " + group1.getGroupId());
         System.out.println("Code: " + group1.getCode());
-        System.out.println("program Id: " + group1.getprogramId());
-        System.out.println("period Id: " + group1.getperiodId());
-        System.out.println("shift Id: " + group1.getshift());
+        System.out.println("program Id: " + group1.getProgramId());
+        System.out.println("period Id: " + group1.getPeriodId());
+        System.out.println("shift Id: " + group1.getShift());
         System.out.println("------------------------- ");
 
+        // Instancia de Group usando el constructor lleno
+        Group group2 = new Group();
 
-                // Instancia de Group usando el constructor lleno
-                 group  group2   = new group();
-
-
-                System.out.println("GROUP 2");
-                System.out.println("group ID: " + group2.getGroupId());
-                System.out.println("Code: " + group2.getCode());
-                System.out.println("Program ID: " + group2.getprogramId());
-                System.out.println("Period ID: " + group2.getperiodId());
-                System.out.println("Shift: " + group2.getshift());
-                System.out.println("------------------------- ");
+        System.out.println("GROUP 2");
+        System.out.println("group ID: " + group2.getGroupId());
+        System.out.println("Code: " + group2.getCode());
+        System.out.println("Program ID: " + group2.getProgramId());
+        System.out.println("Period ID: " + group2.getPeriodId());
+        System.out.println("Shift: " + group2.getShift());
+        System.out.println("------------------------- ");
 
             }
         }
-
-
-
-
-
-
-
