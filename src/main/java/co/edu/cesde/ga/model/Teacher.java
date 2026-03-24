@@ -11,9 +11,9 @@ public class Teacher extends Person {
     }
 
     // Constructor lleno
-    public Teacher(Long teacherId, Long userId, String code, String documentType, String documentNumber,
+    public Teacher(Long teacherId, Long userId, String documentType, String documentNumber,
                    String firstName, String lastName, String status) {
-        super(userId, code, documentType, documentNumber, firstName, lastName, status);
+        super(userId, documentType, documentNumber, firstName, lastName, status);
         this.teacherId = teacherId;
     }
 

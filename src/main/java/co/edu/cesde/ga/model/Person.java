@@ -4,7 +4,6 @@ public abstract class Person {
 
     // Atributos
     private Long userId;
-    private String code;
     private String documentType;
     private String documentNumber;
     private String firstName;
@@ -16,9 +15,8 @@ public abstract class Person {
     }
 
     // Constructor lleno
-    protected Person(Long userId, String code, String documentType, String documentNumber, String firstName, String lastName, String status) {
+    protected Person(Long userId, String documentType, String documentNumber, String firstName, String lastName, String status) {
         this.userId = userId;
-        this.code = code;
         this.documentType = documentType;
         this.documentNumber = documentNumber;
         this.firstName = firstName;
@@ -33,14 +31,6 @@ public abstract class Person {
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getDocumentType() { return documentType; }

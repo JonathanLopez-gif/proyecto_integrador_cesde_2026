@@ -14,10 +14,10 @@ public class Student extends Person {
     }
 
     // Constructor lleno
-    public Student(Long studentId, Long userId, String code, String documentType, String documentNumber,
+    public Student(Long studentId, Long userId, String documentType, String documentNumber,
                    String firstName, String lastName, LocalDate birthDate, String status) {
 
-        super(userId, code, documentType, documentNumber, firstName, lastName, status);
+        super(userId, documentType, documentNumber, firstName, lastName, status);
         this.studentId = studentId;
         this.birthDate = birthDate;
     }
