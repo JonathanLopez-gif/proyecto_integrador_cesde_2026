@@ -10,7 +10,7 @@ public interface StudentRepository {
 
     List<Student> findAll();
 
-    Student findById (Long studentId);
+    Student findById(Long studentId);
 
     Student findByDocumentNumber(String documentNumber);
 
@@ -21,4 +21,5 @@ public interface StudentRepository {
     boolean existsByDocumentNumber(String documentNumber);
 
     int count();
+
 }

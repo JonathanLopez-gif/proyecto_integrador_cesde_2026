@@ -40,36 +40,6 @@ public class StudentRepositoryInMemory implements StudentRepository {
     }
 
     @Override
-    public boolean existsByDocumentNumber(String documentNumber){
-
-        if (documentNumber == null || documentNumber.isEmpty()){
-            return false;
-        }
-
-        return findByDocumentNumber(documentNumber) != null;
-
-    }
-
-    @Override
-    public Student findByDocumentNumber(String documentNumber){
-
-        if (documentNumber == null || documentNumber.isBlank()){
-            return null;
-        }
-
-        for (Student student : students){
-
-            if (documentNumber.equals(student.getDocumentNumber())){
-                return student;
-            }
-
-        }
-
-        return null;
-
-    }
-
-    @Override
     public List<Student> findAll() {
 
         return new ArrayList<>(students);
@@ -95,21 +65,22 @@ public class StudentRepositoryInMemory implements StudentRepository {
     }
 
     @Override
-    public boolean delete(Long studentId){
+    public Student findByDocumentNumber(String documentNumber){
 
-        Student student = findById(studentId);
+        if (documentNumber == null || documentNumber.isBlank()){
+            return null;
+        }
 
-        if (student == null) return false;
+        for (Student student : students){
 
-        students.remove(student);
+            if (documentNumber.equals(student.getDocumentNumber())){
+                return student;
+            }
 
-        return true;
+        }
 
-    }
+        return null;
 
-    @Override
-    public int count(){
-        return students.size();
     }
 
     @Override
@@ -135,6 +106,35 @@ public class StudentRepositoryInMemory implements StudentRepository {
 
         return false;
 
+    }
+
+    @Override
+    public boolean delete(Long studentId){
+
+        Student student = findById(studentId);
+
+        if (student == null) return false;
+
+        students.remove(student);
+
+        return true;
+
+    }
+
+    @Override
+    public boolean existsByDocumentNumber(String documentNumber){
+
+        if (documentNumber == null || documentNumber.isEmpty()){
+            return false;
+        }
+
+        return findByDocumentNumber(documentNumber) != null;
+
+    }
+
+    @Override
+    public int count(){
+        return students.size();
     }
 
 }
