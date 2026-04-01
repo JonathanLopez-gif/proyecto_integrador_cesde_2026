@@ -8,13 +8,19 @@ import java.util.List;
 
 public class TeacherRepositoryInMemory implements TeacherRepository  {
 
+    // Atributos
+
     private List<Teacher> teachers;
     private Long nextTeacherId;
+
+    // Constructor
 
     public TeacherRepositoryInMemory(){
         this.teachers = new ArrayList<>();
         this.nextTeacherId=1L;
     }
+
+    // Sobrecarga de métodos
 
     @Override
     public Teacher create(Teacher teacher){

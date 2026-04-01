@@ -12,8 +12,6 @@ public interface UserRoleRepository {
 
     UserRole findById(Long userRoleId);
 
-    UserRole findByDocumentNumber(Long documentNumber);
-
     boolean update(UserRole updatedUserRole);
 
     boolean delete(Long userRoleId);

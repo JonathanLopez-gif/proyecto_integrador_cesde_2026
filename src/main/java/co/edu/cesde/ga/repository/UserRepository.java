@@ -12,13 +12,9 @@ public interface UserRepository {
 
     User findById(Long userId);
 
-    User findByDocumentNumber(Long documentNumber);
-
     boolean update(User updatedUser);
 
     boolean delete(Long userId);
-
-    boolean existsByDocumentNumber(String documentNumber);
 
     int count();
 
