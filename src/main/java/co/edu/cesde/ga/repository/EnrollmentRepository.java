@@ -4,7 +4,7 @@ import co.edu.cesde.ga.model.Enrollment;
 
 import java.util.List;
 
-public interface EnrollmentRepository {
+public interface GradeRepository {
 
     Enrollment create(Enrollment enrollment);
 
