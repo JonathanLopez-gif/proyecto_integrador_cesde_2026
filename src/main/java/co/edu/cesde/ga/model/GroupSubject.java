@@ -53,4 +53,6 @@ public class GroupSubject {
         this.teacherId = teacherId;
     }
 
+    public void setGroupSubjectId(Long aLong) {
+    }
 }
