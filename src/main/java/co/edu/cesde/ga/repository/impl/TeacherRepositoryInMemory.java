@@ -84,19 +84,19 @@ public class TeacherRepositoryInMemory implements TeacherRepository  {
     }
 
     @Override
-    public boolean update(Teacher updatedTeacher){
+    public boolean update(Teacher teacher){
 
-        if (updatedTeacher == null) return false;
+        if (teacher == null) return false;
 
-        if (findByDocumentNumber(updatedTeacher.getDocumentNumber()) != null){
+        if (findByDocumentNumber(teacher.getDocumentNumber()) != null){
             return false;
         }
 
         for (int i = 0; i < teachers.size(); i++){
 
-            if (updatedTeacher.getTeacherId().equals(teachers.get(i).getTeacherId())){
+            if (teacher.getTeacherId().equals(teachers.get(i).getTeacherId())){
 
-                teachers.set(i, updatedTeacher);
+                teachers.set(i, teacher);
 
                 return true;
 

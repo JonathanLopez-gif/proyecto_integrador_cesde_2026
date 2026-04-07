@@ -61,15 +61,15 @@ public class UserRepositoryInMemory implements UserRepository {
     }
 
     @Override
-    public boolean update(User updatedUser){
+    public boolean update(User user){
 
-        if (updatedUser == null) return false;
+        if (user == null) return false;
 
         for (int i = 0; i < users.size(); i++){
 
-            if (updatedUser.getUserId().equals(users.get(i).getUserId())){
+            if (user.getUserId().equals(users.get(i).getUserId())){
 
-                users.set(i, updatedUser);
+                users.set(i, user);
 
                 return true;
 

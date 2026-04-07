@@ -12,7 +12,7 @@ public interface SubjectRepository {
 
     Subject findById(Long SubjectId);
 
-    boolean update(Subject updatedSubject);
+    boolean update(Subject subject);
 
     boolean delete(Long SubjectId);
 

@@ -13,13 +13,13 @@ public class GradeRepositoryInMemory implements GradeRepository {
     // Atributos
 
     private List<Grade> grades;
-    private Long nextGradeId;
+    private Integer nextGradeId;
 
     // Constructor
 
     public GradeRepositoryInMemory(){
         this.grades = new ArrayList<>();
-        this.nextGradeId = 1L;
+        this.nextGradeId = 1;
     }
 
     // Sobrecarga de métodos
@@ -64,15 +64,15 @@ public class GradeRepositoryInMemory implements GradeRepository {
     }
 
     @Override
-    public boolean update(Grade updatedGrade){
+    public boolean update(Grade grade){
 
-        if (updatedGrade == null) return false;
+        if (grade == null) return false;
 
         for (int i = 0; i < grades.size(); i++){
 
-            if (updatedGrade.getGradeId().equals(grades.get(i).getGradeId())){
+            if (grade.getGradeId().equals(grades.get(i).getGradeId())){
 
-                grades.set(i, updatedGrade);
+                grades.set(i, grade);
 
                 return true;
 

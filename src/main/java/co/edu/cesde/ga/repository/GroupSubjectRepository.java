@@ -12,7 +12,7 @@ public interface GroupSubjectRepository {
 
     GroupSubject findById(Long groupSubjectId);
 
-    boolean update(GroupSubject updatedGroupSubject);
+    boolean update(GroupSubject groupSubject);
 
     boolean delete(Long groupSubjectId);
 

@@ -61,15 +61,15 @@ public class GroupRepositoryInMemory implements GroupRepository {
     }
 
     @Override
-    public boolean update(Group updatedGroup){
+    public boolean update(Group group){
 
-        if (updatedGroup == null) return false;
+        if (group == null) return false;
 
         for (int i = 0; i < groups.size(); i++){
 
-            if (updatedGroup.getGroupId().equals(groups.get(i).getGroupId())){
+            if (group.getGroupId().equals(groups.get(i).getGroupId())){
 
-                groups.set(i, updatedGroup);
+                groups.set(i, group);
 
                 return true;
 

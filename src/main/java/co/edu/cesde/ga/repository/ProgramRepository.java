@@ -13,7 +13,7 @@ public interface ProgramRepository {
 
     Program findById(Long programId);
 
-    boolean update(Program updatedProgram);
+    boolean update(Program program);
 
     boolean delete(Long programId);
 

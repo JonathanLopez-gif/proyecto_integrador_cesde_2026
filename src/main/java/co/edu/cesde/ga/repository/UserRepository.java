@@ -12,7 +12,7 @@ public interface UserRepository {
 
     User findById(Long userId);
 
-    boolean update(User updatedUser);
+    boolean update(User user);
 
     boolean delete(Long userId);
 

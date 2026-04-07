@@ -14,7 +14,7 @@ public interface TeacherRepository {
 
     Teacher findByDocumentNumber(String documentNumber);
 
-    boolean update(Teacher updatedTeacher);
+    boolean update(Teacher teacher);
 
     boolean delete(Long teacherId);
 

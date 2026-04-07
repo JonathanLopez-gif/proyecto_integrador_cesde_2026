@@ -84,19 +84,19 @@ public class StudentRepositoryInMemory implements StudentRepository {
     }
 
     @Override
-    public boolean update(Student updatedStudent){
+    public boolean update(Student student){
 
-        if (updatedStudent == null) return false;
+        if (student == null) return false;
 
-        if (findByDocumentNumber(updatedStudent.getDocumentNumber()) != null){
+        if (findByDocumentNumber(student.getDocumentNumber()) != null){
             return false;
         }
 
         for (int i = 0; i < students.size(); i++){
 
-            if (updatedStudent.getStudentId().equals(students.get(i).getStudentId())){
+            if (student.getStudentId().equals(students.get(i).getStudentId())){
 
-                students.set(i, updatedStudent);
+                students.set(i, student);
 
                 return true;
 

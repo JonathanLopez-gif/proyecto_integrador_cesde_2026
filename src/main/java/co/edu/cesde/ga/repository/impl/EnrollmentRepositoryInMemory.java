@@ -61,15 +61,15 @@ public class EnrollmentRepositoryInMemory implements EnrollmentRepository {
     }
 
     @Override
-    public boolean update(Enrollment updatedEnrollment){
+    public boolean update(Enrollment enrollment){
 
-        if (updatedEnrollment == null) return false;
+        if (enrollment == null) return false;
 
         for (int i = 0; i < enrollments.size(); i++){
 
-            if (updatedEnrollment.getEnrollmentId().equals(enrollments.get(i).getEnrollmentId())){
+            if (enrollment.getEnrollmentId().equals(enrollments.get(i).getEnrollmentId())){
 
-                enrollments.set(i, updatedEnrollment);
+                enrollments.set(i, enrollment);
 
                 return true;
 

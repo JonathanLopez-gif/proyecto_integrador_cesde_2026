@@ -61,15 +61,15 @@ public class SubjectRepositoryInMemory implements SubjectRepository {
     }
 
     @Override
-    public boolean update(Subject updatedSubject){
+    public boolean update(Subject subject){
 
-        if (updatedSubject == null) return false;
+        if (subject == null) return false;
 
         for (int i = 0; i < subjects.size(); i++){
 
-            if (updatedSubject.getSubjectId().equals(subjects.get(i).getSubjectId())){
+            if (subject.getSubjectId().equals(subjects.get(i).getSubjectId())){
 
-                subjects.set(i, updatedSubject);
+                subjects.set(i, subject);
 
                 return true;
 

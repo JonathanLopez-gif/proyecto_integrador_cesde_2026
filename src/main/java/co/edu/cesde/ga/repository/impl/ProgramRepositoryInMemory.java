@@ -64,15 +64,15 @@ import java.util.List;
         }
 
         @Override
-        public boolean update(Program updatedProgram) {
+        public boolean update(Program program) {
 
-            if (updatedProgram == null) return false;
+            if (program == null) return false;
 
             for (int i = 0; i < programs.size(); i++){
 
-                if (updatedProgram.getProgramId().equals(programs.get(i).getProgramId())){
+                if (program.getProgramId().equals(programs.get(i).getProgramId())){
 
-                    programs.set(i, updatedProgram);
+                    programs.set(i, program);
 
                     return true;
 

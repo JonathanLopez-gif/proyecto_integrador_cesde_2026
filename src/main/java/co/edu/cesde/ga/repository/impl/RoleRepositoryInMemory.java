@@ -62,15 +62,15 @@ import java.util.List;
         }
 
         @Override
-        public boolean update(Role updatedRole){
+        public boolean update(Role role){
 
-            if (updatedRole == null) return false;
+            if (role == null) return false;
 
             for (int i = 0; i < roles.size(); i++){
 
-                if (updatedRole.getRoleId().equals(roles.get(i).getRoleId())){
+                if (role.getRoleId().equals(roles.get(i).getRoleId())){
 
-                    roles.set(i, updatedRole);
+                    roles.set(i, role);
 
                     return true;
 

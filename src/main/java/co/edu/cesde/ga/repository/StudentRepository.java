@@ -14,7 +14,7 @@ public interface StudentRepository {
 
     Student findByDocumentNumber(String documentNumber);
 
-    boolean update(Student updatedStudent);
+    boolean update(Student student);
 
     boolean delete(Long studentId);
 

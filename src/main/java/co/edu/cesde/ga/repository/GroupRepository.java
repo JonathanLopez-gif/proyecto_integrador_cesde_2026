@@ -12,7 +12,7 @@ public interface GroupRepository {
 
     Group findById(Long groupId);
 
-    boolean update(Group updatedGroup);
+    boolean update(Group group);
 
     boolean delete(Long groupId);
 

@@ -4,7 +4,7 @@ import co.edu.cesde.ga.model.Enrollment;
 
 import java.util.List;
 
-public interface GradeRepository {
+public interface EnrollmentRepository {
 
     Enrollment create(Enrollment enrollment);
 
@@ -12,7 +12,7 @@ public interface GradeRepository {
 
     Enrollment findById(Long enrollmentId);
 
-    boolean update(Enrollment updatedEnrollment);
+    boolean update(Enrollment enrollment);
 
     boolean delete(Long enrollmentId);
 

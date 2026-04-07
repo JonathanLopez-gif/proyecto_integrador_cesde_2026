@@ -62,15 +62,15 @@ import java.util.List;
         }
 
         @Override
-        public boolean update(Period updatedPeriod) {
+        public boolean update(Period period) {
 
-            if (updatedPeriod == null) return false;
+            if (period == null) return false;
 
             for (int i = 0; i < periods.size(); i++){
 
-                if (updatedPeriod.getPeriodId().equals(periods.get(i).getPeriodId())){
+                if (period.getPeriodId().equals(periods.get(i).getPeriodId())){
 
-                    periods.set(i, updatedPeriod);
+                    periods.set(i, period);
 
                     return true;
 

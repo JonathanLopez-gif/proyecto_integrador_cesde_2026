@@ -12,7 +12,7 @@ public interface PeriodRepository {
 
     Period findById(Long periodId);
 
-    boolean update(Period updatedPeriod);
+    boolean update(Period period);
 
     boolean delete(Long periodId);
 

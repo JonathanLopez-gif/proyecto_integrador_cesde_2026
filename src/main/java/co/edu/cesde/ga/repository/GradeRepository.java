@@ -12,7 +12,7 @@ public interface GradeRepository {
 
     Grade findById(Long gradeId);
 
-    boolean update(Grade updatedGrade);
+    boolean update(Grade grade);
 
     boolean delete(Long gradeId);
 

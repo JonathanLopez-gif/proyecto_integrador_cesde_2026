@@ -6,7 +6,7 @@ public class Student extends Person {
 
     // Atributos propios
     private Long studentId;
-    private LocalDate birthDate;
+    private String birthDate;
 
     // Constructor vacío
     public Student() {
@@ -15,7 +15,7 @@ public class Student extends Person {
 
     // Constructor lleno
     public Student(Long studentId, Long userId, String documentType, String documentNumber,
-                   String firstName, String lastName, LocalDate birthDate, String status) {
+                   String firstName, String lastName, String birthDate, String status) {
 
         super(userId, documentType, documentNumber, firstName, lastName, status);
         this.studentId = studentId;
@@ -24,13 +24,13 @@ public class Student extends Person {
 
     // Getter
     public Long getStudentId() { return studentId; }
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
     // Setter
     public void setStudentId(Long studentId) { this.studentId = studentId; }
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

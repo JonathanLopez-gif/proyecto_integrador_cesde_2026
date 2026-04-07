@@ -12,7 +12,7 @@ public interface UserRoleRepository {
 
     UserRole findById(Long userRoleId);
 
-    boolean update(UserRole updatedUserRole);
+    boolean update(UserRole userRole);
 
     boolean delete(Long userRoleId);
 

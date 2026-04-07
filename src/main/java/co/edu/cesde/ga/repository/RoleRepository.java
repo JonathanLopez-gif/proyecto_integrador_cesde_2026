@@ -12,7 +12,7 @@ public interface RoleRepository {
 
     Role findById(Long roleId);
 
-    boolean update(Role updatedRole);
+    boolean update(Role role);
 
     boolean delete(Long roleId);
 
