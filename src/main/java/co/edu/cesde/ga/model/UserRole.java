@@ -4,16 +4,16 @@ public class UserRole {
 
     // Atributos
     private Long userId;
-    private Long rolId;
+    private Long roleId;
 
     // Constructor vacío
     public UserRole() {
     }
 
     // Constructor lleno
-    public UserRole(Long userId, Long rolId) {
+    public UserRole(Long userId, Long roleId) {
         this.userId = userId;
-        this.rolId = rolId;
+        this.roleId = roleId;
     }
 
     // Métodos de acceso
@@ -22,16 +22,16 @@ public class UserRole {
         return userId;
     }
 
-    public Long getRolId() {
-        return rolId;
+    public Long getRoleId() {
+        return roleId;
     }
 
     public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public void setRolId(Long rolId) {
-        this.rolId = rolId;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
 }

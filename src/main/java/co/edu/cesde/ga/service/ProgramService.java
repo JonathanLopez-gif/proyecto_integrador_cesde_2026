@@ -8,12 +8,14 @@ public interface ProgramService {
 
     Program create(Program program);
 
-    Program findById(Long programId);
-
     List<Program> findAll();
+
+    Program findById(Long programId);
 
     boolean update(Program program);
 
     boolean delete(Long programId);
+
+    int count();
 
 }

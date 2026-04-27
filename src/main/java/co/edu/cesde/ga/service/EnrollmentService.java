@@ -8,12 +8,14 @@ public interface EnrollmentService {
 
     Enrollment create(Enrollment enrollment);
 
-    Enrollment findById(Long enrollmentId);
-
     List<Enrollment> findAll();
+
+    Enrollment findById(Long enrollmentId);
 
     boolean update(Enrollment enrollment);
 
     boolean delete(Long enrollmentId);
+
+    int count();
 
 }

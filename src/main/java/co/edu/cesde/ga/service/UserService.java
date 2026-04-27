@@ -8,12 +8,15 @@ public interface UserService {
 
     User create(User user);
 
-    User findById(Long userId);
-
     List<User> findAll();
+
+    User findById(Long userId);
 
     boolean update(User user);
 
     boolean delete(Long userId);
 
+    int count();
+
 }
+

@@ -8,11 +8,14 @@ public interface PeriodService {
 
     Period create(Period period);
 
-    Period findById(Long periodId);
-
     List<Period> findAll();
+
+    Period findById(Long periodId);
 
     boolean update(Period period);
 
     boolean delete(Long periodId);
+
+    int count();
+
 }

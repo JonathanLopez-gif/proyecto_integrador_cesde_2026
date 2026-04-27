@@ -8,12 +8,14 @@ public interface GroupSubjectService {
 
     GroupSubject create(GroupSubject groupSubject);
 
-    GroupSubject findById(Long groupSubjectId);
-
     List<GroupSubject> findAll();
+
+    GroupSubject findById(Long groupSubjectId);
 
     boolean update(GroupSubject groupSubject);
 
     boolean delete(Long groupSubjectId);
+
+    int count();
 
 }

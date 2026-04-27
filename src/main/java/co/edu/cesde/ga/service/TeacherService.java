@@ -8,12 +8,18 @@ public interface TeacherService {
 
     Teacher create(Teacher teacher);
 
+    List<Teacher> findAll();
+
     Teacher findById(Long teacherId);
 
-    List<Teacher> findAll();
+    Teacher findByDocumentNumber(String documentNumber);
 
     boolean update(Teacher teacher);
 
     boolean delete(Long teacherId);
+
+    boolean existsByDocumentNumber(String documentNumber);
+
+    int count();
 
 }

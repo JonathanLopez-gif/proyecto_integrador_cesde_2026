@@ -8,12 +8,14 @@ public interface RoleService {
 
     Role create(Role role);
 
-    Role findById(Long roleId);
-
     List<Role> findAll();
+
+    Role findById(Long roleId);
 
     boolean update(Role role);
 
     boolean delete(Long roleId);
+
+    int count();
 
 }

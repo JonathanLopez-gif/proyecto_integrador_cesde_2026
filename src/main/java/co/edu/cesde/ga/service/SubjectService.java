@@ -8,12 +8,14 @@ public interface SubjectService {
 
     Subject create(Subject subject);
 
-    Subject findById(Long subjectId);
-
     List<Subject> findAll();
+
+    Subject findById(Long subjectId);
 
     boolean update(Subject subject);
 
     boolean delete(Long subjectId);
+
+    int count();
 
 }

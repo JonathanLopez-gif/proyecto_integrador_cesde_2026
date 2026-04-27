@@ -8,12 +8,14 @@ public interface GradeService {
 
     Grade create(Grade grade);
 
-    Grade findById(Long gradeId);
-
     List<Grade> findAll();
+
+    Grade findById(Long gradeId);
 
     boolean update(Grade grade);
 
     boolean delete(Long gradeId);
+
+    int count();
 
 }
