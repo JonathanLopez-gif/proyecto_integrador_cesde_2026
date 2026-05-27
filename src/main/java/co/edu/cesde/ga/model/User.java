@@ -18,6 +18,27 @@ public class User {
 
     // Constructor lleno
     public User(Long userId, String userName, String email, String passwordHash, String status, LocalDate createdAt) {
+        if (userId == null) {
+            throw new NullPointerException("El ID del usuario es obligatorio");
+        }
+        if (userName == null || userName.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del usuario es obligatorio");
+        }
+        if (email == null || email.trim().isEmpty()) {
+            throw new IllegalArgumentException("El email del usuario es obligatorio");
+        }
+        if (passwordHash == null || passwordHash.trim().isEmpty()) {
+            throw new IllegalArgumentException("La contraseña del usuario es obligatoria");
+        }
+        if (status == null || status.trim().isEmpty()) {
+            throw new IllegalArgumentException("El estado del usuario es obligatorio");
+        }
+        if (createdAt == null) {
+            throw new NullPointerException("La fecha de creación del usuario no puede ser nula");
+        }
+        if (createdAt.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("No puede ingresar una fecha futura");
+        }
         this.userId = userId;
         this.userName = userName;
         this.email = email;
@@ -32,6 +53,9 @@ public class User {
     }
 
     public void setUserId(Long userId) {
+        if (userId == null) {
+            throw new NullPointerException("El ID del usuario es obligatorio");
+        }
         this.userId = userId;
     }
 
@@ -40,6 +64,12 @@ public class User {
     }
 
     public void setUserName(String userName) {
+        if (userName == null) {
+            throw new NullPointerException("El nombre del usuario no puede ser nulo");
+        }
+        if (userName.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del usuario no puede estar vacío");
+        }
         this.userName = userName;
     }
 
@@ -48,6 +78,12 @@ public class User {
     }
 
     public void setEmail(String email) {
+        if (email == null) {
+            throw new NullPointerException("El email del usuario no puede ser nulo");
+        }
+        if (email.trim().isEmpty()) {
+            throw new IllegalArgumentException("El email del usuario no puede estar vacío");
+        }
         this.email = email;
     }
 
@@ -56,6 +92,12 @@ public class User {
     }
 
     public void setPasswordHash(String passwordHash) {
+        if (passwordHash == null) {
+            throw new NullPointerException("La contraseña no puede ser nula");
+        }
+        if (passwordHash.trim().isEmpty()) {
+            throw new IllegalArgumentException("La contraseña no puede estar vacía");
+        }
         this.passwordHash = passwordHash;
     }
 
@@ -64,6 +106,12 @@ public class User {
     }
 
     public void setStatus(String status) {
+        if (status == null) {
+            throw new NullPointerException("El estado del usuario no puede ser nulo");
+        }
+        if (status.trim().isEmpty()) {
+            throw new IllegalArgumentException("El estado del usuario no puede estar vacío");
+        }
         this.status = status;
     }
 
@@ -72,6 +120,12 @@ public class User {
     }
 
     public void setCreatedAt(LocalDate createdAt) {
+        if (createdAt == null) {
+            throw new NullPointerException("La fecha de creación del usuario no puede ser nula");
+        }
+        if (createdAt.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("No puede ingresar una fecha futura");
+        }
         this.createdAt = createdAt;
     }
 

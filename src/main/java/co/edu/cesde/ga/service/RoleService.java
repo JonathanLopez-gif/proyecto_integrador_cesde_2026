@@ -16,8 +16,6 @@ public interface RoleService {
 
     boolean delete(Long roleId);
 
-    boolean existsByRoleId(Long roleId);
-
     int count();
 
 }
