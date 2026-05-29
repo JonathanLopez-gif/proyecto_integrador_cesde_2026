@@ -1,5 +1,7 @@
 package co.edu.cesde.ga.model;
 
+import co.edu.cesde.ga.exceptions.TeacherValidationException;
+
 public class Teacher extends Person {
 
     // Atributos propios
@@ -13,29 +15,11 @@ public class Teacher extends Person {
     // Constructor lleno
     public Teacher(Long teacherId, Long userId, String documentType, String documentNumber,
                    String firstName, String lastName, String status) {
+
         super(userId, documentType, documentNumber, firstName, lastName, status);
-        if (teacherId == null) {
-            throw new NullPointerException("El ID del maestro es obligatorio");
-        }
-        if (userId == null) {
-            throw new NullPointerException("El ID del usuario es obligatorio");
-        }
-        if (documentType == null || documentType.trim().isEmpty()) {
-            throw new IllegalArgumentException("El tipo de documento es obligatorio");
-        }
-        if (documentNumber == null || documentNumber.trim().isEmpty()) {
-            throw new IllegalArgumentException("El número de documento es obligatorio");
-        }
-        if (firstName == null || firstName.trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre del maestro es obligatorio");
-        }
-        if (lastName == null || lastName.trim().isEmpty()) {
-            throw new IllegalArgumentException("El apellido del maestro es obligatorio");
-        }
-        if (status == null || status.trim().isEmpty()) {
-            throw new IllegalArgumentException("El estado del maestro es obligatorio");
-        }
-        this.teacherId = teacherId;
+
+        setTeacherId(teacherId);
+
     }
 
     // Getter
@@ -46,7 +30,7 @@ public class Teacher extends Person {
     // Setter
     public void setTeacherId(Long teacherId) {
         if (teacherId == null) {
-            throw new NullPointerException("El ID del maestro es obligatorio");
+            throw new TeacherValidationException(teacherId);
         }
         this.teacherId = teacherId;
     }

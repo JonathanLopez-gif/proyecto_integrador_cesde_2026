@@ -1,5 +1,6 @@
 package co.edu.cesde.ga.service.impl;
 
+import co.edu.cesde.ga.exceptions.TeacherValidationException;
 import co.edu.cesde.ga.model.Teacher;
 import co.edu.cesde.ga.repository.TeacherRepository;
 import co.edu.cesde.ga.service.TeacherService;
@@ -8,24 +9,20 @@ import java.util.List;
 
 public class TeacherServiceImpl implements TeacherService {
 
-    // Constante privada
     private final TeacherRepository teacherRepository;
 
-    // Constructor lleno
     public TeacherServiceImpl(TeacherRepository teacherRepository) {
         this.teacherRepository = teacherRepository;
     }
 
-    // Sobrecarga de métodos
-
     @Override
     public Teacher create(Teacher teacher) {
+        if (isInvalidTeacher(teacher)) {
+            throw new TeacherValidationException("Los datos de validación del maestro son incorrectos.");
+        }
 
-        if (isInvalidTeacher(teacher)
-                || teacherRepository.existsByDocumentNumber(
-                teacher.getDocumentNumber())) {
-
-            return null;
+        if (teacherRepository.existsByDocumentNumber(teacher.getDocumentNumber())) {
+            throw new TeacherValidationException("Ya existe un maestro con el número de documento: " + teacher.getDocumentNumber());
         }
 
         return teacherRepository.create(teacher);
@@ -38,36 +35,42 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public Teacher findById(Long teacherId) {
-
-        if (teacherId == null || teacherId <= 0L) {
-            return null;
+        if (teacherId == null) {
+            throw new TeacherValidationException(teacherId);
+        }
+        if (teacherId <= 0L) {
+            throw new TeacherValidationException("El ID debe ser mayor que 0");
         }
 
-        return teacherRepository.findById(teacherId);
+        Teacher teacher = teacherRepository.findById(teacherId);
+        if (teacher == null) {
+            throw new TeacherValidationException(teacherId);
+        }
+
+        return teacher;
     }
 
     @Override
     public Teacher findByDocumentNumber(String documentNumber) {
-
         if (documentNumber == null || documentNumber.trim().isBlank()) {
-            return null;
+            throw new TeacherValidationException("Ingrese el número de documento del maestro");
         }
 
-        return teacherRepository.findByDocumentNumber(documentNumber);
+        Teacher teacher = teacherRepository.findByDocumentNumber(documentNumber);
+        if (teacher == null) {
+            throw new TeacherValidationException("Maestro con documento " + documentNumber + " no encontrado");
+        }
+        return teacher;
     }
 
     @Override
     public boolean update(Teacher teacher) {
-
-        if (isInvalidTeacher(teacher)
-                || teacher.getTeacherId() == null
-                || teacher.getTeacherId() <= 0L) {
-
-            return false;
+        if (isInvalidTeacher(teacher) || teacher.getTeacherId() == null || teacher.getTeacherId() <= 0L) {
+            throw new TeacherValidationException("Datos de actualización inválidos para el maestro");
         }
 
         if (teacherRepository.findById(teacher.getTeacherId()) == null) {
-            return false;
+            throw new TeacherValidationException(teacher.getTeacherId());
         }
 
         return teacherRepository.update(teacher);
@@ -75,9 +78,15 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public boolean delete(Long teacherId) {
+        if (teacherId == null) {
+            throw new TeacherValidationException(teacherId);
+        }
+        if (teacherId <= 0L) {
+            throw new TeacherValidationException("El ID debe ser mayor que 0");
+        }
 
-        if (teacherId == null || teacherId <= 0L) {
-            return false;
+        if (teacherRepository.findById(teacherId) == null) {
+            throw new TeacherValidationException(teacherId);
         }
 
         return teacherRepository.delete(teacherId);
@@ -85,11 +94,9 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public boolean existsByDocumentNumber(String documentNumber) {
-
         if (documentNumber == null || documentNumber.trim().isBlank()) {
             return false;
         }
-
         return teacherRepository.existsByDocumentNumber(documentNumber);
     }
 
@@ -99,18 +106,16 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     public boolean isInvalidTeacher(Teacher teacher) {
-
         return teacher == null
+                || teacher.getTeacherId() == null
+                || isBlank(teacher.getDocumentType())
                 || isBlank(teacher.getDocumentNumber())
                 || isBlank(teacher.getFirstName())
                 || isBlank(teacher.getLastName())
-                || isBlank(teacher.getDocumentType())
-                || isBlank(teacher.getUserId())
-                || teacher.getStatus() == null;
+                || isBlank(teacher.getStatus());
     }
 
     private boolean isBlank(String value) {
         return value == null || value.trim().isBlank();
     }
-
 }

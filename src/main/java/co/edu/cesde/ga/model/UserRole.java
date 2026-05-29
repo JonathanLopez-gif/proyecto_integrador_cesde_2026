@@ -1,5 +1,7 @@
 package co.edu.cesde.ga.model;
 
+import co.edu.cesde.ga.exceptions.UserRoleValidationException;
+
 public class UserRole {
 
     // Atributos
@@ -12,14 +14,10 @@ public class UserRole {
 
     // Constructor lleno
     public UserRole(Long userId, Long roleId) {
-        if (userId == null) {
-            throw new NullPointerException("El ID del usuario es obligatorio");
-        }
-        if (roleId == null) {
-            throw new NullPointerException("El ID del rol del usuario es obligatorio");
-        }
-        this.userId = userId;
-        this.roleId = roleId;
+
+        setUserId(userId);
+        setRoleId(roleId);
+
     }
 
     // Métodos de acceso
@@ -28,20 +26,20 @@ public class UserRole {
         return userId;
     }
 
-    public Long getRoleId() {
-        return roleId;
-    }
-
     public void setUserId(Long userId) {
         if (userId == null) {
-            throw new NullPointerException("El ID del usuario es obligatorio");
+            throw new UserRoleValidationException("Usuario con ID " + userId + " no encontrado");
         }
         this.userId = userId;
     }
 
+    public Long getRoleId() {
+        return roleId;
+    }
+
     public void setRoleId(Long roleId) {
         if (roleId == null) {
-            throw new NullPointerException("El ID del rol del usuario es obligatorio");
+            throw new UserRoleValidationException(roleId);
         }
         this.roleId = roleId;
     }

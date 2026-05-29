@@ -63,23 +63,16 @@ public class UserRoleRepositoryInMemory implements UserRoleRepository {
 
     @Override
     public boolean update(UserRole userRole){
-
-        if (userRole == null) return false;
+        // Validación defensiva: evitar nulos en el objeto o en su ID
+        if (userRole == null || userRole.getUserId() == null) return false;
 
         for (int i = 0; i < userRoles.size(); i++){
-
             if (userRole.getUserId().equals(userRoles.get(i).getUserId())){
-
                 userRoles.set(i, userRole);
-
                 return true;
-
             }
-
         }
-
         return false;
-
     }
 
     @Override

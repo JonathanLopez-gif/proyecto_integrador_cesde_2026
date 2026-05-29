@@ -62,23 +62,16 @@ public class UserRepositoryInMemory implements UserRepository {
 
     @Override
     public boolean update(User user){
-
-        if (user == null) return false;
+        // Validación defensiva: evitar nulos en el objeto o en su ID
+        if (user == null || user.getUserId() == null) return false;
 
         for (int i = 0; i < users.size(); i++){
-
             if (user.getUserId().equals(users.get(i).getUserId())){
-
                 users.set(i, user);
-
                 return true;
-
             }
-
         }
-
         return false;
-
     }
 
     @Override
