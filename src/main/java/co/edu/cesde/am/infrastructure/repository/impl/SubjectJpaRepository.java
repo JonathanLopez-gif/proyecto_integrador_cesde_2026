@@ -1,0 +1,102 @@
+package co.edu.cesde.am.infrastructure.repository.impl;
+
+import co.edu.cesde.am.domain.model.Subject;
+import co.edu.cesde.am.application.repository.SubjectRepository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SubjectJpaRepository implements SubjectRepository {
+
+    // Atributos
+
+    private List<Subject> subjects;
+    private Long nextSubjectId;
+
+    // Constructor
+
+    public SubjectJpaRepository(){
+        this.subjects = new ArrayList<>();
+        this.nextSubjectId = 1L;
+    }
+
+    // Sobrecarga de métodos
+
+    @Override
+    public Subject create(Subject subject){
+
+        if (subject == null){
+            return null;
+        }
+
+        subject.setSubjectId(nextSubjectId++);
+        subjects.add(subject);
+        return subject;
+
+    }
+
+    @Override
+    public List<Subject> findAll() {
+
+        return new ArrayList<>(subjects);
+
+    }
+
+    @Override
+    public Subject findById(Long subjectId){
+
+        if (subjectId == null){
+            return null;
+        }
+
+        for (Subject subject : subjects){
+
+            if (subjectId.equals(subject.getSubjectId())){
+                return subject;
+            }
+
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean update(Subject subject){
+
+        if (subject == null) return false;
+
+        for (int i = 0; i < subjects.size(); i++){
+
+            if (subject.getSubjectId().equals(subjects.get(i).getSubjectId())){
+
+                subjects.set(i, subject);
+
+                return true;
+
+            }
+
+        }
+
+        return false;
+
+    }
+
+    @Override
+    public boolean delete(Long subjectId){
+
+        Subject subject = findById(subjectId);
+
+        if (subject == null) return false;
+
+        subjects.remove(subject);
+
+        return true;
+
+    }
+
+    @Override
+    public int count(){
+        return subjects.size();
+    }
+
+}
